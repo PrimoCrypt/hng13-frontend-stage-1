@@ -31,9 +31,9 @@
             class="form-input"
             data-testid="test-contact-name"
             required
-            aria-describedby="name-error"
+            aria-describedby="full-name-error"
           />
-          <div id="name-error" class="error-message" data-testid="test-contact-error-name" role="alert" aria-live="polite"></div>
+          <div id="full-name-error" class="error-message" data-testid="test-contact-error-name" role="alert" aria-live="polite"></div>
         </div>
 
         <div class="form-group">
@@ -94,14 +94,22 @@
         const form = document.querySelector('.contact-form');
         const successMessage = document.querySelector('[data-testid="test-contact-success"]');
         
+        console.log('Form found:', form);
+        console.log('Success message found:', successMessage);
+        
         function validateField(field) {
           const value = field.value.trim();
           const fieldName = field.name;
-          const errorElement = document.getElementById(`${fieldName}-error`);
+          const fieldId = field.id;
+          const errorElement = document.getElementById(`${fieldId}-error`);
           let isValid = true;
           let errorMessage = '';
 
-          errorElement.textContent = '';
+          console.log('Validating field:', fieldId, 'Error element:', errorElement);
+
+          if (errorElement) {
+            errorElement.textContent = '';
+          }
           field.classList.remove('error');
 
           if (!value) {
@@ -121,7 +129,9 @@
           }
 
           if (!isValid) {
-            errorElement.textContent = errorMessage;
+            if (errorElement) {
+              errorElement.textContent = errorMessage;
+            }
             field.classList.add('error');
             field.setAttribute('aria-invalid', 'true');
           } else {
@@ -132,6 +142,14 @@
         }
 
         const inputs = form.querySelectorAll('input, textarea');
+        const submitButton = form.querySelector('[data-testid="test-contact-submit"]');
+        
+        console.log('Submit button found:', submitButton);
+        
+        submitButton.addEventListener('click', function(e) {
+          console.log('Submit button clicked!');
+        });
+        
         inputs.forEach(input => {
           input.addEventListener('blur', () => validateField(input));
           input.addEventListener('input', () => {
@@ -142,6 +160,7 @@
         });
 
         form.addEventListener('submit', function(e) {
+          console.log('Form submit event triggered!');
           e.preventDefault();
           
           successMessage.style.display = 'none';
@@ -156,12 +175,14 @@
           if (isFormValid) {
             successMessage.style.display = 'block';
             successMessage.scrollIntoView({ behavior: 'smooth' });
-
-            form.reset();
-            inputs.forEach(input => {
-              input.classList.remove('error');
-              input.setAttribute('aria-invalid', 'false');
-            });
+            
+            setTimeout(() => {
+              form.reset();
+              inputs.forEach(input => {
+                input.classList.remove('error');
+                input.setAttribute('aria-invalid', 'false');
+              });
+            }, 1000);
           } else {
             const firstError = form.querySelector('.error');
             if (firstError) {
