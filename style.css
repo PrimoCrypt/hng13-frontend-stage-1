@@ -1,0 +1,432 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	color: rgb(187, 187, 187);
+	font-weight: 100;
+	display: flex;
+	flex-direction: column;
+	width: 100vw;
+	justify-content: flex-start;
+	align-items: center;
+	min-height: 100vh;
+	background: rgb(27, 27, 27);
+	font-family: 'Inter', sans-serif;
+	padding: 2rem;
+}
+
+.profile-card {
+	background-color: #000;
+	border-radius: 2rem;
+	padding: 2rem;
+	box-shadow: 0px 0px 20px 1px rgba(255, 255, 255, 0.1);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	max-width: 30rem;
+	width: 100%;
+}
+
+.avatar {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 1.5rem;
+}
+
+.avatar img {
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	object-fit: cover;
+}
+
+.profile-header h2 {
+	color: white;
+	font-weight: 400;
+	font-size: 22px;
+	margin-bottom: 0.5rem;
+}
+
+.bio {
+	font-size: 15px;
+	line-height: 1.6;
+	margin-bottom: 1.5rem;
+}
+
+.time-section {
+	margin-bottom: 1rem;
+}
+
+.social-links {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.social-links ul {
+	list-style: none;
+	display: flex;
+	justify-content: center;
+	gap: 1rem;
+}
+
+a {
+	color: white;
+	text-decoration: underline;
+	font-weight: 400;
+	transition: opacity 0.2s ease;
+}
+
+a:hover,
+a:focus {
+	opacity: 0.6;
+	outline: none;
+}
+
+a:active {
+	color: rgb(0, 0, 255);
+}
+
+section.hobbies,
+section.dislikes {
+	margin-top: 1.5rem;
+	width: 100%;
+	text-align: left;
+}
+
+section h3 {
+	color: white;
+	font-weight: 400;
+	margin-bottom: 0.5rem;
+}
+
+section ul {
+	list-style: disc;
+	padding-left: 1.5rem;
+}
+
+li {
+	margin-top: 5px;
+}
+
+@media (min-width: 768px) {
+	.profile-card {
+		flex-direction: column;
+		align-items: center;
+		text-align: cetner;
+		gap: 2rem;
+		max-width: 40rem;
+	}
+
+	.avatar {
+		flex-shrink: 0;
+	}
+
+	.profile-header,
+	.bio,
+	.time-section,
+	.social-links,
+	.hobbies,
+	.dislikes {
+		flex: 1;
+	}
+
+	.social-links ul {
+		justify-content: flex-start;
+	}
+}
+
+@media (max-width: 280px) {
+	body {
+		padding: 1rem;
+	}
+	.profile-card {
+		padding: 1rem;
+		text-align: left;
+	}
+
+	.profile-header h2 {
+		font-size: 14px;
+	}
+
+	.bio {
+		font-size: 12px;
+	}
+	.avatar img {
+		width: 120px;
+		height: 120px;
+	}
+	.social-links ul {
+		flex-direction: column;
+		align-items: start;
+		width: 100%;
+		text-align: start;
+	}
+
+	.social-links{
+		width: 100%;
+	}
+}
+
+/* Navigation Styles */
+.main-nav {
+	width: 100%;
+	max-width: 50rem;
+	margin-bottom: 2rem;
+}
+
+.main-nav ul {
+	list-style: none;
+	display: flex;
+	justify-content: center;
+	gap: 2rem;
+	padding: 0;
+	margin: 0;
+}
+
+.main-nav a {
+	color: white;
+	text-decoration: none;
+	font-weight: 400;
+	padding: 0.5rem 1rem;
+	border-radius: 0.5rem;
+	transition: all 0.3s ease;
+	border: 1px solid transparent;
+}
+
+.main-nav a:hover,
+.main-nav a:focus {
+	background-color: rgba(255, 255, 255, 0.1);
+	border-color: rgba(255, 255, 255, 0.3);
+	outline: none;
+}
+
+.main-nav a.active {
+	background-color: rgba(255, 255, 255, 0.2);
+	border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Page Layout Styles */
+.contact-page,
+.about-page {
+	width: 100%;
+	max-width: 50rem;
+	background-color: #000;
+	border-radius: 2rem;
+	padding: 2rem;
+	box-shadow: 0px 0px 20px 1px rgba(255, 255, 255, 0.1);
+}
+
+.page-header {
+	text-align: center;
+	margin-bottom: 2rem;
+}
+
+.page-header h1 {
+	color: white;
+	font-weight: 400;
+	font-size: 2rem;
+	margin-bottom: 0.5rem;
+}
+
+.page-header p {
+	font-size: 1rem;
+	opacity: 0.8;
+}
+
+/* Form Styles */
+.contact-form {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+}
+
+.form-group {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.form-label {
+	color: white;
+	font-weight: 400;
+	font-size: 0.9rem;
+}
+
+.form-input,
+.form-textarea {
+	background-color: rgba(255, 255, 255, 0.1);
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	border-radius: 0.5rem;
+	padding: 0.75rem;
+	color: white;
+	font-size: 1rem;
+	font-family: inherit;
+	transition: all 0.3s ease;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+	outline: none;
+	border-color: rgba(255, 255, 255, 0.6);
+	background-color: rgba(255, 255, 255, 0.15);
+	box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
+}
+
+.form-input.error,
+.form-textarea.error {
+	border-color: #ff6b6b;
+	background-color: rgba(255, 107, 107, 0.1);
+}
+
+.form-textarea {
+	resize: vertical;
+	min-height: 120px;
+}
+
+.submit-btn {
+	background-color: #4CAF50;
+	color: white;
+	border: none;
+	border-radius: 0.5rem;
+	padding: 0.75rem 1.5rem;
+	font-size: 1rem;
+	font-weight: 500;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	align-self: flex-start;
+}
+
+.submit-btn:hover,
+.submit-btn:focus {
+	background-color: #45a049;
+	outline: none;
+	box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.3);
+}
+
+.submit-btn:active {
+	transform: translateY(1px);
+}
+
+.error-message {
+	color: #ff6b6b;
+	font-size: 0.85rem;
+	margin-top: 0.25rem;
+	min-height: 1.2rem;
+}
+
+.success-message {
+	background-color: rgba(76, 175, 80, 0.2);
+	border: 1px solid #4CAF50;
+	border-radius: 0.5rem;
+	padding: 1rem;
+	color: #4CAF50;
+	text-align: center;
+	font-weight: 500;
+}
+
+/* About Page Styles */
+.about-page section {
+	margin-bottom: 2rem;
+}
+
+.about-page h2 {
+	color: white;
+	font-weight: 400;
+	font-size: 1.5rem;
+	margin-bottom: 1rem;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+	padding-bottom: 0.5rem;
+}
+
+.about-page p {
+	line-height: 1.6;
+	margin-bottom: 1rem;
+}
+
+.about-page ul {
+	margin-left: 1.5rem;
+	margin-bottom: 1rem;
+}
+
+.about-page li {
+	margin-bottom: 0.75rem;
+	line-height: 1.5;
+}
+
+.about-page strong {
+	color: white;
+	font-weight: 500;
+}
+
+blockquote {
+	border-left: 4px solid rgba(255, 255, 255, 0.3);
+	padding-left: 1.5rem;
+	margin: 1.5rem 0;
+	font-style: italic;
+	background-color: rgba(255, 255, 255, 0.05);
+	padding: 1.5rem;
+	border-radius: 0.5rem;
+}
+
+blockquote p {
+	margin-bottom: 1rem;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* Responsive Design for New Pages */
+@media (max-width: 768px) {
+	.main-nav ul {
+		flex-direction: column;
+		gap: 0.5rem;
+		align-items: center;
+	}
+
+	.contact-page,
+	.about-page {
+		padding: 1.5rem;
+		margin: 0 1rem;
+	}
+
+	.page-header h1 {
+		font-size: 1.5rem;
+	}
+
+	.submit-btn {
+		align-self: stretch;
+	}
+}
+
+@media (max-width: 480px) {
+	body {
+		padding: 1rem;
+	}
+
+	.contact-page,
+	.about-page {
+		padding: 1rem;
+		margin: 0;
+	}
+
+	.form-input,
+	.form-textarea {
+		padding: 0.5rem;
+	}
+
+	.about-page h2 {
+		font-size: 1.25rem;
+	}
+
+	blockquote {
+		padding: 1rem;
+		margin: 1rem 0;
+	}
+}

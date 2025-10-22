@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>OtakuChiefIntern's Profile Card</title>
+  </head>
+  <body>
+    <nav class="main-nav" data-testid="test-main-navigation">
+      <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+
+    <article data-testid="test-profile-card" class="profile-card">
+      <header class="profile-header">
+        <figure class="avatar">
+          <img
+            src="./images/slackDisplayPicture(250px by 250px).png"
+            alt="Profile photo of OtakuChiefIntern"
+            data-testid="test-user-avatar"
+          />
+        </figure>
+        <h2 data-testid="test-user-name">OtakuChiefIntern</h2>
+      </header>
+
+      <p data-testid="test-user-bio" class="bio">
+        I'm OtakuChiefIntern, a developer based on Earth with a passion for
+        building crazy applications. I specialize in Next.js, React, vue,
+        Tailwind CSS, and TypeScript and every other framework/library.
+        Beyond coding, I’m also a musician who plays drums and other
+        instruments, blending creativity and technical precision, you can call
+        me your Rhythmic Dev.
+      </p>
+
+      <section class="time-section">
+        <strong>Current Time (ms):</strong>
+        <span data-testid="test-user-time" id="user-time"></span>
+      </section>
+
+      <nav data-testid="test-user-social-links" class="social-links">
+        <ul>
+          <li>
+            <a
+              href="https://x.com/PrimoCrypt"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-testid="test-user-social-twitter"
+            >
+              Twitter
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://github.com/PrimoCrypt"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-testid="test-user-social-github"
+            >
+              GitHub
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <section data-testid="test-user-hobbies" class="hobbies">
+        <h3>Hobbies</h3>
+        <ul>
+          <li>Coding creative UIs</li>
+          <li>Playing the drums, piano and bass guitar</li>
+          <li>Exploring new things in tech</li>
+          <li>Singing</li>
+          <li>Dancing</li>
+          <li>Fixing bugs</li>
+        </ul>
+      </section>
+
+      <section data-testid="test-user-dislikes" class="dislikes">
+        <h3>Dislikes</h3>
+        <ul>
+          <li>Unpleasant Noise</li>
+        </ul>
+      </section>
+    </article>
+
+    <script>
+      function updateTime() {
+        const timeElement = document.getElementById("user-time");
+        timeElement.textContent = Date.now();
+      }
+
+      updateTime();
+      setInterval(updateTime, 1000);
+    </script>
+  </body>
+</html>
